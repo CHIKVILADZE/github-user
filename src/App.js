@@ -148,42 +148,30 @@ function App() {
             <div className="doublebox">
               <div  className="one">
                 <img src={location}/>
-                {{inLocation} == null
-                    ?
+                
                   <p className="footertext">{inLocation}</p>
-                   :
-                   <p className="footertext"> Not Available</p>
-                }
+                
                 
               </div>
               <div  className="one">
                 <img src={icon}/>
-                {{blog} == null
-                    ?
+              
                   <p className="footertext">{blog}</p>
-                   :
-                   <p className="footertext"> Not Available</p>
-                }
+                
               </div>
             </div>
             <div className="doublebox">
               <div  className="one">
                 <img src={twittter}/>
-                {{twitterUserName} == null
-                    ?
-                  <p className="footertext">{twitterUserName}</p>
-                   :
-                   <p className="footertext"> Not Available</p>
-                }
+               
+                  <p className="footertext">Not Aviable</p>
+          
               </div>
               <div  className="one">
                 <img src={company}/>
-                {{commpany} == null
-                    ?
+              
                   <p className="footertext">{commpany}</p>
-                   :
-                   <p className="footertext"> Not Available</p>
-                }
+                
               </div>
             </div>
           </div>  
