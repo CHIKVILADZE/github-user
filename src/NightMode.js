@@ -1,5 +1,4 @@
-import './App.css';
-import './index.css'
+import './index.css';
 import React, { useState, useEffect } from "react";
 import moon from './moon.svg';
 import search from './search.svg';
@@ -8,14 +7,10 @@ import icon from './icon.svg';
 import twittter from './twittter.svg';
 import company from './company.svg';
 import sun from './sun.svg'
-import NightMode from './NightMode.js'
 
 
-
-
-function App() {
-
-
+function NightMode(){
+    
   const[name,setName]=useState(" ");
   const[userName,setUserName]=useState(" ");
   const[followers,setFollowers]=useState(" ");
@@ -29,12 +24,10 @@ function App() {
   const[commpany, setInCommpany]=useState("");
   const[error,setError]=useState(null);
   const[night, setNight]=useState(false);
-  
-
 
 
   useEffect(() => {
-    fetch("https://api.github.com/users/example")
+    fetch("https://api.github.com/users/")
     .then(res => res.json())
     .then(data =>{
       setData(data)
@@ -67,6 +60,7 @@ function App() {
       setTwitterUserName ("twitter_username")
   }
 
+  
  
   
 
@@ -83,6 +77,11 @@ function App() {
        }
     })
   } 
+  const handleClick =()=>{
+    setNight(!night)
+    console.log(night)
+  }
+ 
 
   const handleSearch = (e) =>{
    
@@ -90,19 +89,12 @@ function App() {
   }
 
  
-  const handleClick =()=>{
-    setNight(!night)
-    console.log(night)
-  }
- 
- 
-  return (
-    <div>
-      
-      <header className="header">
+  return(
+    <div className="bodydark">
+      <header className="headerdark">
         <h2>devfinder</h2>
         <div className="effect">
-       {night ? (<span className="dark">DARK</span>):(<span className="light">LIGHT</span>)}
+        {night ? (<span className="dark">DARK</span>):(<span className="light">LIGHT</span>)}
         {night ?
           ( <img className="moon" src={moon} alt="moon" onClick={handleClick}/> )
           :
@@ -110,14 +102,14 @@ function App() {
           }
         </div>
       </header>
-      <form className="form"  onSubmit={handleSubmit}>
+      <form className="formdark"  onSubmit={handleSubmit}>
         <img className="search" src={search} alt="search"/>
         
         <input className="inp" type="text" placeholder='Search GitHub username…' onChange={handleSearch} /> 
        {error ? (<p className="redtext">No Result</p>) : (!<p className="redtext"></p>)}
         <button className="btn">Search</button>
       </form>
-      <section className="section">
+      <section className="sectiondark">
         <div className="avatarbox">
         <img className="avatar" src={avatar}/>
               
@@ -189,10 +181,12 @@ function App() {
           </div>  
         </div>
       </section>  
+    </div> 
+  )
 
-      
-   </div> 
-  );
+
 }
 
-export default App;
+
+
+export default NightMode;
